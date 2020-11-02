@@ -401,3 +401,8 @@ On obtient :
   TCP    127.0.0.1:54050        DESKTOP-ARDRIRA:49684  ESTABLISHED
   TCP    127.0.0.1:65001        DESKTOP-ARDRIRA:51185  ESTABLISHED
   ```
+# Gestion des Softs 
+
+
+
+//
