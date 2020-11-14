@@ -40,13 +40,14 @@ Disque de fichiers d’échange : Oui
 Disque de fichiers de mise en veille prolongée : Non
 Disque de fichiers de vidage sur incident : Oui
 Disque en cluster  : Non
-```
+
 
   N° volume   Ltr  Nom          Fs     Type        Taille   Statut     Info
   ----------  ---  -----------  -----  ----------  -------  ---------  --------
   Volume 2     C   OS           NTFS   Partition    237 G   Sain       Démarrag
   Volume 3                      NTFS   Partition    592 M   Sain
   Volume 4         SYSTEM       FAT32  Partition    260 M   Sain       Système
+```
 
 Quand a la carte graphique elle est obtenu grace au **systeminfo** au dessus.
 
@@ -128,6 +129,7 @@ Availability=3
 Caption=Intel64 Family 6 Model 94 Stepping 3
 ConfigManagerErrorCode=
 ConfigManagerUserConfig=
+```
 # Host OS
 Pour trouver le Host OS j'utilise la commande **systeminfo** qui me permet d'avoir les infos générales de mon pc 
 j'obtiens donc :
@@ -402,7 +404,13 @@ On obtient :
   TCP    127.0.0.1:65001        DESKTOP-ARDRIRA:51185  ESTABLISHED
   ```
 # Gestion des Softs 
+Ils y a plusieurs intérêts a utiliser un gestionnaire de paquets comme par exemple une vitesse de téléchargement plus élevé et le fait que on est plus a chercher partout sur internet.
+De plus l'identité des personnes est protégée car on passe par des serveurs tiers.
+Sur la sécurité, les logiciels n'ont pas de spyware ou malware.
+Sur windows, on utilise choco list -l pour obtenir la liste des paquets installés.
+Pour obtenir les infos d'un paquet, on effectue **choco info <paquet>**. On peut ainsi connaitre sa provenance.
 
-
-
-//
+# Machine virtuelle
+Pour commencer le partage, on doit effectuer la commande : **New-SmbShare -Name "name" -Path "path"** pour créer un nouveau partage avec Samba.
+Pour accéder à un fichier partager depuis la VM on commence par faire une connexion ssh sur powershell avec ssh root@192.168.120.50 puis on fait la commande **mount -t cifs -o username=<UserName>,password=<PassWord> //192.168.1.10/share /opt/partage**
+Et le partage de fichier entre notre Os (Windows) et notre machine virtuelle (CentOs) est opérationelle.
